@@ -17,11 +17,11 @@
             @drop.stop.prevent="onFileDrop"
             @click.prevent="onClick"
             @keyup.enter="onClick"
-            :style="{height: previewHeight + 'px', zIndex: zIndex + 1 }">
+            :style="{height: previewHeight + 'px', zIndex: 'auto' }">
           </canvas>
         <div v-if="!imageSelected && !plain"
           class="picture-inner"
-            :style="{top: -previewHeight + 'px', marginBottom: -previewHeight + 'px', fontSize: fontSize, borderRadius: radius + '%', zIndex: zIndex + 2}">
+            :style="{top: -previewHeight + 'px', marginBottom: -previewHeight + 'px', fontSize: fontSize, borderRadius: radius + '%', zIndex: 'auto'}">
           <span v-if="supportsDragAndDrop" class="picture-inner-text" v-html="strings.drag"></span>
           <span v-else class="picture-inner-text" v-html="strings.tap"></span>
         </div>
@@ -127,10 +127,6 @@ export default {
     plain: {
       type: Boolean,
       default: false
-    },
-    zIndex: {
-      type: Number,
-      default: 10000
     },
     alertOnError: {
       type: Boolean,
